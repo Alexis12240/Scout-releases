@@ -1,6 +1,6 @@
 # Scout para Windows
 
-Buscador local de aplicaciones, archivos y comandos. El codigo de Scout permanece privado; este repositorio distribuye instaladores, notas y metadatos de actualizacion.
+Buscador local de aplicaciones, archivos y comandos. distribución de instaladores, notas y metadatos de actualizacion.
 
 ## Instalar o actualizar
 
