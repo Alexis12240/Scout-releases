@@ -1,18 +1,28 @@
-# Scout distribution
+# Scout para Windows
 
-Public update metadata for Scout, the local Windows launcher and search app.
-Scout's source repository remains private.
+Buscador local de aplicaciones, archivos y comandos. El codigo de Scout permanece privado; este repositorio distribuye instaladores, notas y metadatos de actualizacion.
 
-The stable and preview channels are signed with the publisher's RSA-PSS key.
-The app verifies its pinned publisher key before trusting a channel descriptor.
+## Instalar o actualizar
 
-No installer release is published yet. A valid empty channel means that no
-update is currently offered; it does not download or install anything.
+La version disponible es **0.13.12 alpha** para Windows x64, en el [canal preliminar](https://github.com/Alexis12240/Scout-releases/releases/tag/v0.13.12-alpha.20261116).
 
-Future installer assets and release notes will be published here after package
-validation. Updates notify the user and require confirmation. Personal indexes,
-models, credentials, source code and local profiles are not part of this repository.
+1. Descarga `Scout-0.13.12-alpha.20261116-win-x64.zip` desde los activos de esa version.
+2. Extrae **todo** el ZIP a una carpeta nueva y abre `Scout.Setup.exe`.
+3. Si Scout esta abierto, cierralo desde **Salir de Scout**; la X solo lo oculta. En 0.13.12 o posterior tambien existe `Scout.exe --exit` para solicitar el cierre normal.
+4. Sigue el panel. Conserva indices y preferencias existentes. La preparacion integrada del teclado y NTFS puede solicitar UAC.
 
-Channel paths: `channels/stable.json` and `channels/preview.json`.
-`publisher-key.spki` is the public verification key. The private signing key
-is retained in the publisher's non-exportable Windows key store.
+El paquete incluye los modelos y motores fijados para busqueda semantica y multimedia; no requiere cuenta de GitHub. La indexacion inicial puede consumir recursos y no equivale a un indice ya terminado. Las licencias de terceros estan incluidas en `payload/licenses` y en sus distribuciones de runtime.
+
+Esta preliminar **no tiene firma Authenticode**; Windows puede mostrar una advertencia de editor. `SHA256SUMS.txt` permite comprobar la descarga. La firma del canal autentica los metadatos y los hashes, no es un certificado de Windows.
+
+## Actualizaciones
+
+Scout verifica los canales `channels/preview.json` y `channels/stable.json` con su clave publica fijada. Las versiones alpha consultan Preview. Stable aun no ofrece una version final.
+
+Se mantiene **Avisar y pedirme actualizar** o consulta manual. El cliente abre las notas por accion del usuario; no descarga ni ejecuta instaladores silenciosamente. La instalacion usa el panel transaccional con verificacion y recuperacion.
+
+`publisher-key.spki` es la clave publica RSA-PSS/SHA-256. La clave privada no se almacena aqui. Los paquetes no incluyen perfiles, consultas, credenciales ni indices personales.
+
+## Estado de la preliminar
+
+Incluye mejoras de busqueda, iconos genericos, arranque, foco, almacenamiento progresivo, mascota y diagnostico. Se validaron 597 comprobaciones de contratos/interfaz/cache con perfiles aislados. Sigue pendiente confirmar nuevamente el primer acceso tras un reinicio completo del equipo y observar estabilidad prolongada. No se declara CORE01 terminado ni una reduccion porcentual de RAM.
